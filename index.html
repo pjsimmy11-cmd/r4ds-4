@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>NBA and FIFA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="analysis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="analysis_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="analysis_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="analysis_files/libs/quarto-html/popper.min.js"></script>
+<script src="analysis_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="analysis_files/libs/quarto-html/anchor.min.js"></script>
+<link href="analysis_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="analysis_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="analysis_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="analysis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="analysis_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="analysis_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="analysis_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="analysis_files/libs/plotly-binding-4.11.0/plotly.js"></script>
+
+<script src="analysis_files/libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="analysis_files/libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="analysis_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="analysis_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+<link href="analysis_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="analysis_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">NBA and FIFA</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>title: “NBA and FIFA” format: html execute: echo: false —</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-c8a7d774f021eff80a6d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-c8a7d774f021eff80a6d">{"x":{"data":[{"x":[2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[101.51118881118882,105.4150417827298,107.28521373510861,109.68285280728377,112.46729708431836,113.17063492063492,111.39870053160071,113.70007107320541,116.08961038961039],"text":["game_year: 2015<br />avg_points: 101.51119<br />game_era: 3pt Revolution","game_year: 2016<br />avg_points: 105.41504<br />game_era: 3pt Revolution","game_year: 2017<br />avg_points: 107.28521<br />game_era: 3pt Revolution","game_year: 2018<br />avg_points: 109.68285<br />game_era: 3pt Revolution","game_year: 2019<br />avg_points: 112.46730<br />game_era: 3pt Revolution","game_year: 2020<br />avg_points: 113.17063<br />game_era: 3pt Revolution","game_year: 2021<br />avg_points: 111.39870<br />game_era: 3pt Revolution","game_year: 2022<br />avg_points: 113.70007<br />game_era: 3pt Revolution","game_year: 2023<br />avg_points: 116.08961<br />game_era: 3pt Revolution"],"type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(13,8,135,0.8)","dash":"solid"},"hoveron":"points","name":"3pt Revolution","legendgroup":"3pt Revolution","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014],"y":[97.908940397350989,96.922647527910684,96.912178956089477,96.525370804059335,96.0408326661329,98.518466898954699,99.533478893740906,99.950599858856734,100.92382271468144,101.97562674094708,101.48335644937586,100.46892039258451,97.502202643171813,99.802395209580837,102.18238128011012],"text":["game_year: 2000<br />avg_points:  97.90894<br />game_era: Iso/Post Era","game_year: 2001<br />avg_points:  96.92265<br />game_era: Iso/Post Era","game_year: 2002<br />avg_points:  96.91218<br />game_era: Iso/Post Era","game_year: 2003<br />avg_points:  96.52537<br />game_era: Iso/Post Era","game_year: 2004<br />avg_points:  96.04083<br />game_era: Iso/Post Era","game_year: 2005<br />avg_points:  98.51847<br />game_era: Iso/Post Era","game_year: 2006<br />avg_points:  99.53348<br />game_era: Iso/Post Era","game_year: 2007<br />avg_points:  99.95060<br />game_era: Iso/Post Era","game_year: 2008<br />avg_points: 100.92382<br />game_era: Iso/Post Era","game_year: 2009<br />avg_points: 101.97563<br />game_era: Iso/Post Era","game_year: 2010<br />avg_points: 101.48336<br />game_era: Iso/Post Era","game_year: 2011<br />avg_points: 100.46892<br />game_era: Iso/Post Era","game_year: 2012<br />avg_points:  97.50220<br />game_era: Iso/Post Era","game_year: 2013<br />avg_points:  99.80240<br />game_era: Iso/Post Era","game_year: 2014<br />avg_points: 102.18238<br />game_era: Iso/Post Era"],"type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(156,23,158,0.8)","dash":"solid"},"hoveron":"points","name":"Iso/Post Era","legendgroup":"Iso/Post Era","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999],"y":[110.24487704918033,109.50739476678044,110.74950298210736,111.46215943491423,111.86557059961315,113.24114173228347,112.19979612640164,112.59003051881994,111.0984990619137,110.50578806767587,110.03959561920809,107.59612141652615,107.64751958224544,105.47698744769875,103.86936936936937,102.74509803921569,98.890274314214466,98.256329113924053,96.963007159904535,94.925803792250619],"text":["game_year: 1980<br />avg_points: 110.24488<br />game_era: Jordan Era","game_year: 1981<br />avg_points: 109.50739<br />game_era: Jordan Era","game_year: 1982<br />avg_points: 110.74950<br />game_era: Jordan Era","game_year: 1983<br />avg_points: 111.46216<br />game_era: Jordan Era","game_year: 1984<br />avg_points: 111.86557<br />game_era: Jordan Era","game_year: 1985<br />avg_points: 113.24114<br />game_era: Jordan Era","game_year: 1986<br />avg_points: 112.19980<br />game_era: Jordan Era","game_year: 1987<br />avg_points: 112.59003<br />game_era: Jordan Era","game_year: 1988<br />avg_points: 111.09850<br />game_era: Jordan Era","game_year: 1989<br />avg_points: 110.50579<br />game_era: Jordan Era","game_year: 1990<br />avg_points: 110.03960<br />game_era: Jordan Era","game_year: 1991<br />avg_points: 107.59612<br />game_era: Jordan Era","game_year: 1992<br />avg_points: 107.64752<br />game_era: Jordan Era","game_year: 1993<br />avg_points: 105.47699<br />game_era: Jordan Era","game_year: 1994<br />avg_points: 103.86937<br />game_era: Jordan Era","game_year: 1995<br />avg_points: 102.74510<br />game_era: Jordan Era","game_year: 1996<br />avg_points:  98.89027<br />game_era: Jordan Era","game_year: 1997<br />avg_points:  98.25633<br />game_era: Jordan Era","game_year: 1998<br />avg_points:  96.96301<br />game_era: Jordan Era","game_year: 1999<br />avg_points:  94.92580<br />game_era: Jordan Era"],"type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(237,121,83,0.8)","dash":"solid"},"hoveron":"points","name":"Jordan Era","legendgroup":"Jordan Era","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979],"y":[66,71.223728813559319,77.356401384083043,82.863157894736844,83.99803536345776,87.002754820936644,88.109589041095887,83.273480662983431,86.801857585139317,97.915584415584419,101.8170731707317,106.67721518987342,108.33564013840831,114.76254180602007,119.390625,131,117.47448979591837,115.54973821989529,113.33753148614609,115.11111111111111,118.62222222222222,116.98113207547169,116.34210526315789,115.12392426850258,119.10495626822157,109.80653950953679,110.78415300546447,108.62734584450402,105.57340720221606,105.09243697478992,105.66666666666667,110.04205607476635,111.83213920163767,111.71153846153847],"text":["game_year: 1946<br />avg_points:  66.00000<br />game_era: Pre-3pt Era","game_year: 1947<br />avg_points:  71.22373<br />game_era: Pre-3pt Era","game_year: 1948<br />avg_points:  77.35640<br />game_era: Pre-3pt Era","game_year: 1949<br />avg_points:  82.86316<br />game_era: Pre-3pt Era","game_year: 1950<br />avg_points:  83.99804<br />game_era: Pre-3pt Era","game_year: 1951<br />avg_points:  87.00275<br />game_era: Pre-3pt Era","game_year: 1952<br />avg_points:  88.10959<br />game_era: Pre-3pt Era","game_year: 1953<br />avg_points:  83.27348<br />game_era: Pre-3pt Era","game_year: 1954<br />avg_points:  86.80186<br />game_era: Pre-3pt Era","game_year: 1955<br />avg_points:  97.91558<br />game_era: Pre-3pt Era","game_year: 1956<br />avg_points: 101.81707<br />game_era: Pre-3pt Era","game_year: 1957<br />avg_points: 106.67722<br />game_era: Pre-3pt Era","game_year: 1958<br />avg_points: 108.33564<br />game_era: Pre-3pt Era","game_year: 1959<br />avg_points: 114.76254<br />game_era: Pre-3pt Era","game_year: 1960<br />avg_points: 119.39062<br />game_era: Pre-3pt Era","game_year: 1961<br />avg_points: 131.00000<br />game_era: Pre-3pt Era","game_year: 1962<br />avg_points: 117.47449<br />game_era: Pre-3pt Era","game_year: 1963<br />avg_points: 115.54974<br />game_era: Pre-3pt Era","game_year: 1964<br />avg_points: 113.33753<br />game_era: Pre-3pt Era","game_year: 1965<br />avg_points: 115.11111<br />game_era: Pre-3pt Era","game_year: 1966<br />avg_points: 118.62222<br />game_era: Pre-3pt Era","game_year: 1967<br />avg_points: 116.98113<br />game_era: Pre-3pt Era","game_year: 1968<br />avg_points: 116.34211<br />game_era: Pre-3pt Era","game_year: 1969<br />avg_points: 115.12392<br />game_era: Pre-3pt Era","game_year: 1970<br />avg_points: 119.10496<br />game_era: Pre-3pt Era","game_year: 1971<br />avg_points: 109.80654<br />game_era: Pre-3pt Era","game_year: 1972<br />avg_points: 110.78415<br />game_era: Pre-3pt Era","game_year: 1973<br />avg_points: 108.62735<br />game_era: Pre-3pt Era","game_year: 1974<br />avg_points: 105.57341<br />game_era: Pre-3pt Era","game_year: 1975<br />avg_points: 105.09244<br />game_era: Pre-3pt Era","game_year: 1976<br />avg_points: 105.66667<br />game_era: Pre-3pt Era","game_year: 1977<br />avg_points: 110.04206<br />game_era: Pre-3pt Era","game_year: 1978<br />avg_points: 111.83214<br />game_era: Pre-3pt Era","game_year: 1979<br />avg_points: 111.71154<br />game_era: Pre-3pt Era"],"type":"scatter","mode":"lines","line":{"width":4.5354330708661417,"color":"rgba(240,249,33,0.8)","dash":"solid"},"hoveron":"points","name":"Pre-3pt Era","legendgroup":"Pre-3pt Era","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[101.51118881118882,105.4150417827298,107.28521373510861,109.68285280728377,112.46729708431836,113.17063492063492,111.39870053160071,113.70007107320541,116.08961038961039],"text":["game_year: 2015<br />avg_points: 101.51119<br />game_era: 3pt Revolution<br />games_count: 1430","game_year: 2016<br />avg_points: 105.41504<br />game_era: 3pt Revolution<br />games_count: 1436","game_year: 2017<br />avg_points: 107.28521<br />game_era: 3pt Revolution<br />games_count: 1427","game_year: 2018<br />avg_points: 109.68285<br />game_era: 3pt Revolution<br />games_count: 1318","game_year: 2019<br />avg_points: 112.46730<br />game_era: 3pt Revolution<br />games_count: 1269","game_year: 2020<br />avg_points: 113.17063<br />game_era: 3pt Revolution<br />games_count:  756","game_year: 2021<br />avg_points: 111.39870<br />game_era: 3pt Revolution<br />games_count: 1693","game_year: 2022<br />avg_points: 113.70007<br />game_era: 3pt Revolution<br />games_count: 1407","game_year: 2023<br />avg_points: 116.08961<br />game_era: 3pt Revolution<br />games_count:  770"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(13,8,135,1)","opacity":0.69999999999999996,"size":[21.452611978470269,21.481749144749394,21.438020456649667,20.897039847998673,20.646562967760591,17.657879135077984,22.677165354330711,21.340348832557282,17.751080541099014],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(13,8,135,1)"}},"hoveron":"points","name":"3pt Revolution","legendgroup":"3pt Revolution","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014],"y":[97.908940397350989,96.922647527910684,96.912178956089477,96.525370804059335,96.0408326661329,98.518466898954699,99.533478893740906,99.950599858856734,100.92382271468144,101.97562674094708,101.48335644937586,100.46892039258451,97.502202643171813,99.802395209580837,102.18238128011012],"text":["game_year: 2000<br />avg_points:  97.90894<br />game_era: Iso/Post Era<br />games_count: 1208","game_year: 2001<br />avg_points:  96.92265<br />game_era: Iso/Post Era<br />games_count: 1254","game_year: 2002<br />avg_points:  96.91218<br />game_era: Iso/Post Era<br />games_count: 1207","game_year: 2003<br />avg_points:  96.52537<br />game_era: Iso/Post Era<br />games_count: 1281","game_year: 2004<br />avg_points:  96.04083<br />game_era: Iso/Post Era<br />games_count: 1249","game_year: 2005<br />avg_points:  98.51847<br />game_era: Iso/Post Era<br />games_count: 1435","game_year: 2006<br />avg_points:  99.53348<br />game_era: Iso/Post Era<br />games_count: 1374","game_year: 2007<br />avg_points:  99.95060<br />game_era: Iso/Post Era<br />games_count: 1417","game_year: 2008<br />avg_points: 100.92382<br />game_era: Iso/Post Era<br />games_count: 1444","game_year: 2009<br />avg_points: 101.97563<br />game_era: Iso/Post Era<br />games_count: 1436","game_year: 2010<br />avg_points: 101.48336<br />game_era: Iso/Post Era<br />games_count: 1442","game_year: 2011<br />avg_points: 100.46892<br />game_era: Iso/Post Era<br />games_count:  917","game_year: 2012<br />avg_points:  97.50220<br />game_era: Iso/Post Era<br />games_count: 1135","game_year: 2013<br />avg_points:  99.80240<br />game_era: Iso/Post Era<br />games_count:  668","game_year: 2014<br />avg_points: 102.18238<br />game_era: Iso/Post Era<br />games_count: 1453"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(156,23,158,1)","opacity":0.69999999999999996,"size":[20.327880957625361,20.56892233097096,20.322590372836615,20.708345409581199,20.542938947309349,21.4768971864119,21.177659284595041,21.389270866829353,21.520504109143449,21.481749144749394,21.510825460499408,18.682647480431061,19.935726377797387,17.051110104138825,21.563975254271558],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(156,23,158,1)"}},"hoveron":"points","name":"Iso/Post Era","legendgroup":"Iso/Post Era","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999],"y":[110.24487704918033,109.50739476678044,110.74950298210736,111.46215943491423,111.86557059961315,113.24114173228347,112.19979612640164,112.59003051881994,111.0984990619137,110.50578806767587,110.03959561920809,107.59612141652615,107.64751958224544,105.47698744769875,103.86936936936937,102.74509803921569,98.890274314214466,98.256329113924053,96.963007159904535,94.925803792250619],"text":["game_year: 1980<br />avg_points: 110.24488<br />game_era: Jordan Era<br />games_count:  976","game_year: 1981<br />avg_points: 109.50739<br />game_era: Jordan Era<br />games_count:  879","game_year: 1982<br />avg_points: 110.74950<br />game_era: Jordan Era<br />games_count: 1006","game_year: 1983<br />avg_points: 111.46216<br />game_era: Jordan Era<br />games_count:  991","game_year: 1984<br />avg_points: 111.86557<br />game_era: Jordan Era<br />games_count: 1034","game_year: 1985<br />avg_points: 113.24114<br />game_era: Jordan Era<br />games_count: 1016","game_year: 1986<br />avg_points: 112.19980<br />game_era: Jordan Era<br />games_count:  981","game_year: 1987<br />avg_points: 112.59003<br />game_era: Jordan Era<br />games_count:  983","game_year: 1988<br />avg_points: 111.09850<br />game_era: Jordan Era<br />games_count: 1066","game_year: 1989<br />avg_points: 110.50579<br />game_era: Jordan Era<br />games_count: 1123","game_year: 1990<br />avg_points: 110.03960<br />game_era: Jordan Era<br />games_count: 1187","game_year: 1991<br />avg_points: 107.59612<br />game_era: Jordan Era<br />games_count: 1186","game_year: 1992<br />avg_points: 107.64752<br />game_era: Jordan Era<br />games_count: 1149","game_year: 1993<br />avg_points: 105.47699<br />game_era: Jordan Era<br />games_count: 1195","game_year: 1994<br />avg_points: 103.86937<br />game_era: Jordan Era<br />games_count: 1110","game_year: 1995<br />avg_points: 102.74510<br />game_era: Jordan Era<br />games_count: 1224","game_year: 1996<br />avg_points:  98.89027<br />game_era: Jordan Era<br />games_count: 1203","game_year: 1997<br />avg_points:  98.25633<br />game_era: Jordan Era<br />games_count: 1264","game_year: 1998<br />avg_points:  96.96301<br />game_era: Jordan Era<br />games_count:  838","game_year: 1999<br />avg_points:  94.92580<br />game_era: Jordan Era<br />games_count: 1213"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(237,121,83,1)","opacity":0.69999999999999996,"size":[19.035295495316547,18.449474046530366,19.210515405653709,19.12323732066185,19.371709274841169,19.268339385069655,19.064684123147327,19.076418576992786,19.553278482120387,19.870067181123297,20.216314291174587,20.210977053250989,20.011891227508407,20.258931446009271,19.798538907866821,20.412234151310017,20.301406067355785,20.620734034257627,18.19215901425564,20.354301068305944],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(237,121,83,1)"}},"hoveron":"points","name":"Jordan Era","legendgroup":"Jordan Era","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979],"y":[66,71.223728813559319,77.356401384083043,82.863157894736844,83.99803536345776,87.002754820936644,88.109589041095887,83.273480662983431,86.801857585139317,97.915584415584419,101.8170731707317,106.67721518987342,108.33564013840831,114.76254180602007,119.390625,131,117.47448979591837,115.54973821989529,113.33753148614609,115.11111111111111,118.62222222222222,116.98113207547169,116.34210526315789,115.12392426850258,119.10495626822157,109.80653950953679,110.78415300546447,108.62734584450402,105.57340720221606,105.09243697478992,105.66666666666667,110.04205607476635,111.83213920163767,111.71153846153847],"text":["game_year: 1946<br />avg_points:  66.00000<br />game_era: Pre-3pt Era<br />games_count:  128","game_year: 1947<br />avg_points:  71.22373<br />game_era: Pre-3pt Era<br />games_count:  295","game_year: 1948<br />avg_points:  77.35640<br />game_era: Pre-3pt Era<br />games_count:  289","game_year: 1949<br />avg_points:  82.86316<br />game_era: Pre-3pt Era<br />games_count:  475","game_year: 1950<br />avg_points:  83.99804<br />game_era: Pre-3pt Era<br />games_count:  509","game_year: 1951<br />avg_points:  87.00275<br />game_era: Pre-3pt Era<br />games_count:  363","game_year: 1952<br />avg_points:  88.10959<br />game_era: Pre-3pt Era<br />games_count:  365","game_year: 1953<br />avg_points:  83.27348<br />game_era: Pre-3pt Era<br />games_count:  362","game_year: 1954<br />avg_points:  86.80186<br />game_era: Pre-3pt Era<br />games_count:  323","game_year: 1955<br />avg_points:  97.91558<br />game_era: Pre-3pt Era<br />games_count:  308","game_year: 1956<br />avg_points: 101.81707<br />game_era: Pre-3pt Era<br />games_count:  328","game_year: 1957<br />avg_points: 106.67722<br />game_era: Pre-3pt Era<br />games_count:  316","game_year: 1958<br />avg_points: 108.33564<br />game_era: Pre-3pt Era<br />games_count:  289","game_year: 1959<br />avg_points: 114.76254<br />game_era: Pre-3pt Era<br />games_count:  299","game_year: 1960<br />avg_points: 119.39062<br />game_era: Pre-3pt Era<br />games_count:  192","game_year: 1961<br />avg_points: 131.00000<br />game_era: Pre-3pt Era<br />games_count:    1","game_year: 1962<br />avg_points: 117.47449<br />game_era: Pre-3pt Era<br />games_count:  196","game_year: 1963<br />avg_points: 115.54974<br />game_era: Pre-3pt Era<br />games_count:  382","game_year: 1964<br />avg_points: 113.33753<br />game_era: Pre-3pt Era<br />games_count:  397","game_year: 1965<br />avg_points: 115.11111<br />game_era: Pre-3pt Era<br />games_count:  360","game_year: 1966<br />avg_points: 118.62222<br />game_era: Pre-3pt Era<br />games_count:  225","game_year: 1967<br />avg_points: 116.98113<br />game_era: Pre-3pt Era<br />games_count:  265","game_year: 1968<br />avg_points: 116.34211<br />game_era: Pre-3pt Era<br />games_count:  570","game_year: 1969<br />avg_points: 115.12392<br />game_era: Pre-3pt Era<br />games_count:  581","game_year: 1970<br />avg_points: 119.10496<br />game_era: Pre-3pt Era<br />games_count:  343","game_year: 1971<br />avg_points: 109.80654<br />game_era: Pre-3pt Era<br />games_count:  367","game_year: 1972<br />avg_points: 110.78415<br />game_era: Pre-3pt Era<br />games_count:  732","game_year: 1973<br />avg_points: 108.62735<br />game_era: Pre-3pt Era<br />games_count:  746","game_year: 1974<br />avg_points: 105.57341<br />game_era: Pre-3pt Era<br />games_count:  722","game_year: 1975<br />avg_points: 105.09244<br />game_era: Pre-3pt Era<br />games_count:  476","game_year: 1976<br />avg_points: 105.66667<br />game_era: Pre-3pt Era<br />games_count:   51","game_year: 1977<br />avg_points: 110.04206<br />game_era: Pre-3pt Era<br />games_count:  428","game_year: 1978<br />avg_points: 111.83214<br />game_era: Pre-3pt Era<br />games_count:  977","game_year: 1979<br />avg_points: 111.71154<br />game_era: Pre-3pt Era<br />games_count:  988"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(240,249,33,1)","opacity":0.69999999999999996,"size":[11.700951108560886,13.860947662454771,13.796311158478375,15.560833136848212,15.842847099011536,14.551863272481281,14.571153814384434,14.542198018166921,14.154214027097591,13.998768171997357,14.205221429671031,14.082133623403022,13.796311158478375,13.903672846970622,12.638473800812006,7.559055118110237,12.691385840022464,14.733029413236581,14.872886125559386,14.522827265456813,13.059797900193416,13.530773129175653,16.326104677547843,16.41044203266334,14.355947309348576,14.590391432691019,17.49607175371364,17.590776571251958,17.42786904907469,15.56926938380777,10.157911801596958,15.153766354459705,19.041179238526567,19.105702538471412],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(240,249,33,1)"}},"hoveron":"points","name":"Pre-3pt Era","legendgroup":"Pre-3pt Era","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":45.223744292237441,"r":7.9701120797011216,"b":40.647571606475722,"l":47.023661270236623},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"<b> NBA Scoring Evolution: 75+ Years of Basketball <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1942.1500000000001,2026.8499999999999],"tickmode":"array","ticktext":["1960","1980","2000","2020"],"tickvals":[1960,1980,2000,2020],"categoryorder":"array","categoryarray":["1960","1980","2000","2020"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Season Year","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[62.75,134.25],"tickmode":"array","ticktext":["80","100","120"],"tickvals":[80,100,120],"categoryorder":"array","categoryarray":["80","100","120"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Average Points Per Game","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"NBA Era","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"orientation":"h","x":0.10000000000000001,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":true,"displaylogo":false},"source":"A","attrs":{"906848914a71":{"x":{},"y":{},"colour":{},"type":"scatter"},"9068680b3cb9":{"x":{},"y":{},"colour":{},"size":{}}},"cur_data":"906848914a71","visdat":{"906848914a71":["function (y) ","x"],"9068680b3cb9":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/plot-fifa-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
