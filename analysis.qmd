@@ -1,0 +1,124 @@
+---
+---
+title: "NBA and FIFA"
+format: html
+execute: 
+  echo: false
+---
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(arrow)
+library(plotly)
+library(viridis)
+library(scales)
+```
+
+```{r}
+#| label: load-nba-data
+#| message: false
+#| warning: false
+
+# 1. NBA Data Setup
+nba_clean <- read_parquet("data/game.parquet") %>%
+  mutate(game_year = year(game_date)) %>%
+  mutate(game_era = case_when(
+    game_year < 1980 ~ "Pre-3pt Era",
+    game_year >= 1980 & game_year < 2000 ~ "Jordan Era",
+    game_year >= 2000 & game_year < 2015 ~ "Iso/Post Era",
+    game_year >= 2015 ~ "3pt Revolution"
+  )) %>%
+  group_by(game_year, game_era) %>%
+  summarize(
+    avg_points = mean(pts_home, na.rm = TRUE),
+    games_count = n(),
+    .groups = "drop"
+  )
+```
+
+```{r}
+#| label: load-fifa-data
+#| message: false
+#| warning: false
+
+# 2. FIFA Data Setup (Must run BEFORE the plot)
+final_fifa <- read_parquet("data/fifa.parquet") %>%
+  mutate(
+    # Handle "M" (Millions) and "K" (Thousands)
+    value_numeric = case_when(
+      str_detect(Value, "M") ~ as.numeric(str_extract(Value, "[0-9.]+")) * 1000000,
+      str_detect(Value, "K") ~ as.numeric(str_extract(Value, "[0-9.]+")) * 1000,
+      TRUE                   ~ as.numeric(str_extract(Value, "[0-9.]+"))
+    )
+  )
+```
+
+```{r}
+#| label: plot-nba
+
+# 3. NBA Plot
+time_series_plot <- nba_clean %>%
+  ggplot(aes(x = game_year, y = avg_points, color = game_era)) +
+  geom_line(linewidth = 1.2, alpha = 0.8) +
+  geom_point(aes(size = games_count), alpha = 0.7) +
+  scale_color_viridis_d(option = "plasma") +
+  scale_size_continuous(range = c(2, 6), guide = "none") +
+  labs(
+    title = "NBA Scoring Evolution: 75+ Years of Basketball",
+    subtitle = "Average points per game by season with era classifications",
+    x = "Season Year",
+    y = "Average Points Per Game",
+    color = "NBA Era"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray60"),
+    legend.position = "bottom",
+    panel.grid.minor = element_blank(),
+    plot.background = element_rect(fill = "white", color = NA)
+  )
+
+ggplotly(time_series_plot, tooltip = c("x", "y", "colour", "size")) %>%
+  layout(
+    hovermode = "closest",
+    showlegend = TRUE,
+    legend = list(orientation = "h", x = 0.1, y = -0.2)
+  ) %>%
+  config(displayModeBar = TRUE, displaylogo = FALSE)
+```
+
+```{r}
+#| label: plot-fifa
+
+# 4. FIFA Plot
+final_fifa %>%
+  filter(value_numeric > 0, X.OVA > 60) %>%
+  ggplot(aes(x = Age, y = X.OVA, size = value_numeric, color = value_numeric)) +
+  geom_point(alpha = 0.7) +
+  scale_size_continuous(range = c(0.5, 8), 
+                        labels = label_currency(prefix = "€", suffix = "M", scale = 1e-6),
+                        name = "Market Value") +
+  scale_color_viridis_c(option = "plasma", 
+                        labels = label_currency(prefix = "€", suffix = "M", scale = 1e-6),
+                        name = "Market Value") +
+  labs(
+    title = "FIFA Player Performance vs Age",
+    subtitle = "Size and color represent market value • Larger bubbles = higher value",
+    x = "Age", 
+    y = "Overall Rating",
+    caption = "Data: FIFA Player Dataset"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#2C3E50"),
+    plot.subtitle = element_text(size = 12, color = "#7F8C8D"),
+    legend.position = "right",
+    panel.grid.minor = element_blank(),
+    plot.background = element_rect(fill = "#FAFAFA", color = NA)
+  )
+```
