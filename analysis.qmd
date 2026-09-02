@@ -1,5 +1,160 @@
 ---
 title: "Crypto Markets"
-author: "PJ Simmy"
+author: "Peter Simmons"
 format: html
+execute:
+  echo: false
 ---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(arrow)
+```
+
+```{r}
+schema(open_dataset("data/daily_prices.parquet"))
+```
+
+```{r}
+open_dataset("data/daily_prices.parquet") |>
+  collect() |>
+  slice_sample(n = 10)
+```
+
+```{r}
+open_dataset("data/daily_prices.parquet") |>
+  filter(date_raw >= "2025-01-01") |>
+  group_by(coin_id) |>
+  summarize(avg_market_cap = mean(market_cap_usd, na.rm = TRUE)) |>
+  arrange(desc(avg_market_cap)) |>
+  collect()
+```
+
+```{r}
+open_dataset("data/daily_prices.parquet") |>
+  group_by(coin_id) |>
+  write_dataset("data/prices_by_coin", existing_data_behavior = "overwrite")
+```
+
+```{r}
+#| cache: true
+prices <- read_parquet("data/daily_prices.parquet")
+metadata <- read_parquet("data/coin_metadata.parquet")
+categories <- read_parquet("data/categories.parquet")
+
+crypto <- prices |>
+  left_join(metadata, by = "coin_id") |>
+  left_join(categories, by = "category_id", suffix = c("_coin", "_category")) |>
+  mutate(date = as_date(date_raw))
+```
+
+```{r}
+metadata |>
+  select(coin_id, coin_name, launch_date) |>
+  print(n = 22)
+```
+
+```{r}
+metadata <- metadata |>
+  mutate(launch_date_parsed = parse_date_time(launch_date, orders = c("ymd", "mdy")) |> as_date())
+
+metadata |>
+  select(coin_id, coin_name, launch_date, launch_date_parsed) |>
+  arrange(launch_date_parsed) |>
+  print(n = 22)
+```
+
+```{r}
+prices |>
+  filter(coin_id == "btc") |>
+  mutate(date = as.Date(date_raw)) |>
+  ggplot(aes(x = date, y = price_usd)) +
+  geom_line() +
+  labs(
+    title = "Bitcoin Daily Price",
+    x = "Date",
+    y = "Price (USD)"
+  )
+```
+
+```{r}
+prices |>
+  filter(coin_id == "btc") |>
+  mutate(
+    date = as.Date(date_raw),
+    market_cap_trillions = market_cap_usd / 1e12
+  ) |>
+  ggplot(aes(x = date, y = market_cap_trillions)) +
+  geom_line() +
+  labs(
+    title = "Bitcoin Market Cap Over Time",
+    x = "Date",
+    y = "Market Cap (Trillions USD)"
+  )
+```
+
+```{r}
+prices |>
+  filter(market_cap_usd > 0) |>
+  mutate(market_cap_billions = market_cap_usd / 1e9) |>
+  ggplot(aes(x = market_cap_billions, y = fct_reorder(coin_id, market_cap_billions, median, na.rm = TRUE))) +
+  geom_boxplot() +
+  scale_x_log10() +
+  labs(
+    title = "Market Cap Distribution Across Coins",
+    x = "Market Cap (Billions USD, Log Scale)",
+    y = "Coin"
+  )
+```
+
+```{r}
+crypto |>
+  group_by(date) |>
+  summarize(total_market_cap = sum(market_cap_usd, na.rm = TRUE) / 1e12) |>
+  ggplot(aes(x = date, y = total_market_cap)) +
+  geom_line() +
+  labs(
+    title = "Total Crypto Market Cap Over Time",
+    x = "Date",
+    y = "Total Market Cap (Trillions USD)"
+  )
+```
+
+```{r}
+crypto |>
+  group_by(date, category_name) |>
+  summarize(total_market_cap = sum(market_cap_usd, na.rm = TRUE) / 1e12, .groups = "drop") |>
+  ggplot(aes(x = date, y = total_market_cap, color = category_name)) +
+  geom_line() +
+  labs(
+    title = "Crypto Market Cap Over Time by Category",
+    x = "Date",
+    y = "Market Cap (Trillions USD)",
+    color = "Category"
+  )
+```
+
+```{r}
+crypto |>
+  group_by(date, category_name) |>
+  summarize(total_market_cap = sum(market_cap_usd, na.rm = TRUE), .groups = "drop") |>
+  mutate(category_name = fct_reorder(category_name, total_market_cap, sum, .desc = TRUE)) |>
+  ggplot(aes(x = date, y = total_market_cap, fill = category_name)) +
+  geom_area(position = "fill") +
+  geom_vline(xintercept = as_date("2022-05-09"), linetype = "dashed", color = "white", linewidth = 0.8) +
+  annotate("text", x = as_date("2022-05-09"), y = 0.98, label = "Luna/UST Crash", hjust = 1.05, vjust = 1, size = 3, fontface = "bold", color = "white") +
+  geom_vline(xintercept = as_date("2022-11-08"), linetype = "dashed", color = "white", linewidth = 0.8) +
+  annotate("text", x = as_date("2022-11-08"), y = 0.98, label = "FTX Collapse", hjust = -0.05, vjust = 1, size = 3, fontface = "bold", color = "white") +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_viridis_d() +
+  labs(
+    title = "Cryptocurrency Market Cap Share by Category",
+    subtitle = "Daily percentage share of total market capitalization across major crypto categories",
+    x = "Date",
+    y = "Share of Total Market Capitalization",
+    fill = "Category",
+    caption = "Source: CoinGecko via PPBDS"
+  ) +
+  theme_minimal()
+```
