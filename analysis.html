@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="PJ Simmy">
+<meta name="author" content="Peter Simmons">
 
 <title>Crypto Markets</title>
 <style>
@@ -63,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>PJ Simmy </p>
+             <p>Peter Simmons </p>
           </div>
   </div>
     
@@ -76,7 +76,164 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Schema
+date_raw: string
+coin_id: string
+price_usd: double
+market_cap_usd: double
+market_cap_str: string
+volume_usd: double</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 6
+   date_raw   coin_id price_usd market_cap_usd market_cap_str  volume_usd
+   &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
+ 1 2021-12-11 aave      180.           2.89e 9 $2.89B           78625158.
+ 2 2022-05-24 crv         1.26         2.20e 9 $2.2B            54994935.
+ 3 2026-05-03 bnb       618.           8.33e10 $83.33B         122557019.
+ 4 2023-07-01 dai         1.000        4.34e 9 $4.34B           23049322.
+ 5 2024-01-28 xrp         0.524        5.24e10 $52.35B         285483151.
+ 6 2025-03-17 btc     84014.           1.67e12 $1.67T         9553690440.
+ 7 2022-11-03 uni         6.93         6.93e 9 $6.93B          106040689.
+ 8 2021-01-13 uni         6.31         6.31e 9 $6.31B          169711792.
+ 9 2019-06-28 eth       309.           3.30e10 &lt;NA&gt;           1644341652.
+10 2018-06-06 ada         0.214        6.66e 9 $6.66B           47185818.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 22 × 2
+   coin_id avg_market_cap
+   &lt;chr&gt;            &lt;dbl&gt;
+ 1 btc            1.88e12
+ 2 eth            3.47e11
+ 3 xrp            2.22e11
+ 4 usdt           1.71e11
+ 5 bnb            1.05e11
+ 6 usdc           6.60e10
+ 7 doge           2.72e10
+ 8 ada            2.12e10
+ 9 link           1.51e10
+10 cro            1.12e10
+# ℹ 12 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 22 × 3
+   coin_id coin_name    launch_date       
+   &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;             
+ 1 btc     Bitcoin      January 3, 2009   
+ 2 ltc     Litecoin     October 7, 2011   
+ 3 bch     Bitcoin Cash August 1, 2017    
+ 4 eth     Ethereum     2015-07-30        
+ 5 bnb     BNB          July 25, 2017     
+ 6 ada     Cardano      2017-09-29        
+ 7 dot     Polkadot     2020-08-18        
+ 8 link    Chainlink    September 19, 2017
+ 9 xrp     XRP          2013-02-02        
+10 usdt    Tether       2014-10-06        
+11 usdc    USD Coin     September 26, 2018
+12 dai     Dai          2017-12-17        
+13 busd    Binance USD  September 5, 2019 
+14 uni     Uniswap      2020-09-17        
+15 aave    Aave         2020-10-02        
+16 mkr     Maker        December 17, 2017 
+17 comp    Compound     2020-06-15        
+18 crv     Curve        2020-08-13        
+19 doge    Dogecoin     December 8, 2013  
+20 ftt     FTX Token    May 8, 2019       
+21 cro     Cronos       2018-12-01        
+22 ht      Huobi Token  January 25, 2018  </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 22 × 4
+   coin_id coin_name    launch_date        launch_date_parsed
+   &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;              &lt;date&gt;            
+ 1 btc     Bitcoin      January 3, 2009    2009-01-03        
+ 2 ltc     Litecoin     October 7, 2011    2011-10-07        
+ 3 xrp     XRP          2013-02-02         2013-02-02        
+ 4 doge    Dogecoin     December 8, 2013   2013-12-08        
+ 5 usdt    Tether       2014-10-06         2014-10-06        
+ 6 eth     Ethereum     2015-07-30         2015-07-30        
+ 7 bnb     BNB          July 25, 2017      2017-07-25        
+ 8 bch     Bitcoin Cash August 1, 2017     2017-08-01        
+ 9 link    Chainlink    September 19, 2017 2017-09-19        
+10 ada     Cardano      2017-09-29         2017-09-29        
+11 dai     Dai          2017-12-17         2017-12-17        
+12 mkr     Maker        December 17, 2017  2017-12-17        
+13 ht      Huobi Token  January 25, 2018   2018-01-25        
+14 usdc    USD Coin     September 26, 2018 2018-09-26        
+15 cro     Cronos       2018-12-01         2018-12-01        
+16 ftt     FTX Token    May 8, 2019        2019-05-08        
+17 busd    Binance USD  September 5, 2019  2019-09-05        
+18 comp    Compound     2020-06-15         2020-06-15        
+19 crv     Curve        2020-08-13         2020-08-13        
+20 dot     Polkadot     2020-08-18         2020-08-18        
+21 uni     Uniswap      2020-09-17         2020-09-17        
+22 aave    Aave         2020-10-02         2020-10-02        </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 </main>
 <!-- /main column -->
